@@ -26,34 +26,26 @@ dotenv.config();
 app.use(authenRoutes);
 app.use(apiRoutes);
 
+
+
+
+//#  MongoDB Connection
+mongoose.connect(
+   process.env.MONGO || "mongodb://localhost/blogSite", {
+      useUnifiedTopology: true,
+   useNewUrlParser: true,
+   useFindAndModify: false
+})
+.then(() => { console.log("Successfull Mongodb Connection") })
+.catch(() => console.log("Mongo Error"))
+
+
 if (process.env.NODE_ENV === 'production') {
    app.use(express.static('client/build'));
    app.get('*', (req, res) => {
          res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
    });
 }
-
-app.use(function (req, res) {
-   res.send('404: Page not Found', 404);
-});
-
-//#  Handle 500
-app.use(function (error, req, res, next) {
-   res.send('500: Internal Server Error', 500);
-});
-
-
-//#  MongoDB Connection
-mongoose.connect(
-   process.env.MONGO || "mongodb://localhost/blogSite", {
-   useUnifiedTopology: true,
-   useNewUrlParser: true,
-   useFindAndModify: false
-})
-   .then(() => { console.log("Successfull Mongodb Connection") })
-   .catch(() => console.log("Mongo Error"))
-
-
 //# Listening Port
 app.listen(process.env.PORT || 5000, () => {
    console.log("Server running on Port 5000");
