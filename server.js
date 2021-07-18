@@ -27,12 +27,6 @@ app.use(authenRoutes);
 app.use(apiRoutes);
 
 
-if (process.env.NODE_ENV === 'production') {
-   app.use(express.static('newclient/build'));
-   app.get('*', (req, res) => {
-         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
-   });
-}
 app.use(function (req, res) {
    res.send('404: Page not Found', 404);
 });
@@ -42,6 +36,12 @@ app.use(function (error, req, res, next) {
    res.send('500: Internal Server Error', 500);
 });
 
+if (process.env.NODE_ENV === 'production') {
+   app.use(express.static('client/build'));
+   app.get('*', (req, res) => {
+         res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+   });
+}
 //#  MongoDB Connection
 mongoose.connect(
    process.env.MONGO || "mongodb://localhost/blogSite", {
