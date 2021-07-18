@@ -22,9 +22,6 @@ app.use(morgan('tiny'))
 app.use(cookieParser())
 dotenv.config();
 
-app.get('/',(req,res)=>{
-   res.sendFile(__dirname+'/pages/index.html')
-})
 
 app.use(authenRoutes);
 app.use(apiRoutes);
