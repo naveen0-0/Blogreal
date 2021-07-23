@@ -1,6 +1,6 @@
 .comment {
     width: 90%;
-    min-height: 140px;
+    min-height: 100px;
     margin: auto;
     margin-top: 10px;
     background-color: rgb(15, 15, 15);
@@ -11,21 +11,26 @@
     justify-content: space-around;
 }
 
+.commentDate{
+    display: flex;
+    justify-content: space-between;
+}
+
 .commentusername {
     color: orange;
-    font-family: "Monolisa Light";
+    font-family: "Fira Code";
     font-size: 14px;
 }
 
 .commenttext {
     font-size: 14px;
-    font-family: "Monolisa Light";
+    font-family: "Fira Code";
     color: whitesmoke;
     word-wrap: break-word;
 }
 
 .commentCreatedOn {
-    font-family: "Monolisa Light";
+    font-family: "Fira Code";
     color: crimson;
     font-size: 10px;
 }

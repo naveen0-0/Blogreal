@@ -60,6 +60,18 @@ textarea::-webkit-scrollbar-thumb {
     align-items: center
 }
 
+.noblogs{
+    font-size: 32px;
+    color: grey;
+    font-family: "Fira Code";
+    opacity: 0.7;
+    text-align: center;
+    min-height: 30vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 .signuplink,
 .loginlink,
 .newblog {
@@ -186,6 +198,10 @@ textarea::-webkit-scrollbar-thumb {
     flex-direction: column;
     text-align: center;
     color: whitesmoke;
+}
+
+.userinfo div{
+    font-family: "Fira Code";
 }
 
 .logout {

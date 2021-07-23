@@ -27,14 +27,12 @@ app.use(authenRoutes);
 app.use(apiRoutes);
 
 
-
-
 //#  MongoDB Connection
 mongoose.connect(
    process.env.MONGO || "mongodb://localhost/blogSite", {
       useUnifiedTopology: true,
-   useNewUrlParser: true,
-   useFindAndModify: false
+      useNewUrlParser: true,
+      useFindAndModify: false
 })
 .then(() => { console.log("Successfull Mongodb Connection") })
 .catch(() => console.log("Mongo Error"))

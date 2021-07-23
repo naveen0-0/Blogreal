@@ -6,12 +6,15 @@ export default function Comment({ comment }) {
 
     return (
         <div className={styles.comment}>
-            <div className={styles.commentusername}>{comment.user}</div>
-            <div className={styles.commenttext}>{comment.comment}</div>
-            <div
-                className={styles.commentCreatedOn}>
-                {new Date(comment.commentedOn).toLocaleDateString()}  {new Date(comment.commentedOn).toLocaleTimeString()}
+            <div className={styles.commentDate}>
+                <div className={styles.commentusername}>{comment.user}</div>
+                <div
+                    className={styles.commentCreatedOn}>
+                    {new Date(comment.commentedOn).toLocaleDateString()}  {new Date(comment.commentedOn).toLocaleTimeString()}
+                </div>
+
             </div>
+            <div className={styles.commenttext}>{comment.comment}</div>
         </div>
     )
 }

@@ -22,7 +22,6 @@ export default function HomePage() {
         return <Spinner />
     }
 
-
     return (
         <div className="blogscontainer">
             {blogs.map((blog, index) => <Blog blog={blog} key={index} />)}

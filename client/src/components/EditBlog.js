@@ -33,6 +33,7 @@ export default function EditBlog({ match }) {
     useEffect(() => {
         let source = axios.CancelToken.source();
         const getBlog = async () => {
+            console.log("Trying here.....");
             try {
                 const { data } = await axios.get(`/blog/${id}`, { cancelToken: source.token })
                 setTitle(data.title);
